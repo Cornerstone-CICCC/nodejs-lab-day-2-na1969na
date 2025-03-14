@@ -1,0 +1,71 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+  </head>
+  <body>
+    <h1>Register</h1>
+    <form id="registerForm">
+      <input
+        type="text"
+        id="username"
+        placeholder="Username"
+        required
+      />
+      <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        required
+      />
+      <input
+        type="text"
+        id="firstname"
+        placeholder="First Name"
+        required
+      />
+      <input
+        type="text"
+        id="lastname"
+        placeholder="Last Name"
+        required
+      />
+      <button type="submit">Register</button>
+    </form>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const registerForm = document.getElementById("registerForm");
+
+        if (registerForm) {
+          registerForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const username = (document.getElementById("username") as HTMLInputElement)?.value;
+            const password = (document.getElementById("password") as HTMLInputElement)?.value;
+            const firstname = (document.getElementById("firstname") as HTMLInputElement)?.value;
+            const lastname = (document.getElementById("lastname") as HTMLInputElement)?.value;
+
+            if (username && password && firstname && lastname) {
+              const res = await fetch("http://localhost:3000/api/users/signup", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, password, firstname, lastname }),
+                credentials: "include",
+              });
+
+              if (res.ok) {
+                window.location.href = "/profile";
+              } else {
+                alert("Registration failed");
+              }
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
