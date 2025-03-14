@@ -20,9 +20,8 @@
     *Methods*
     - findAll()
     - findById(id)
-    - findByUsername(username)
     - login(username, password)
-    - create()
+    - create(newUser)
     - update(id)
     - delete(id)
 
@@ -31,7 +30,6 @@
     **Controller (`src/controllers/user.controller.ts`)**
     - getUsers()
     - getUserById(id)
-    - getUserByUsername(username)
     - loginUser()
     - addUser()
     - updateUserById(id)
@@ -42,9 +40,9 @@
 
     **Routes (`src/routes/user.routes.ts`)**
     - `POST /signup` = add user
-    - `POST /login` = check if username exist, return cookie/s username
-    - `GET /logout` = clear the cookies
-    - `GET /check-auth` = check auth cookie/s
+    - `POST /login` = check if username and password exist in database, return cookie session with user info inside
+    - `GET /logout` = clear the cookie session
+    - `GET /check-auth` = check cookie session, return user info from cookie
     - `GET /users` = get all users
     - `GET /user/:id` = get user by id
     - `PUT /user/:id` = update user by id
@@ -66,7 +64,7 @@
     - Login (`/login`): Login form with username and password.
     - Register (`/register`): Signup form with username, password, firstname, and lastname fields.
     - Profile (`/profile`): A protected page that should only display information if the user is authenticated or logged in.
-7. When a user successfully logs in, they should be redirected to the profile page. The profile page should just display user data and a logout button. Due to time-constraints, no need to build edit and delete functionalities:
+7. When a user successfully logs in, they should be redirected to the profile page. The profile page should just display user data and a logout button. No need to build **edit** and **delete** functionalities in the frontend.
     - Username
     - First name
     - Last name
