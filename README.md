@@ -4,7 +4,7 @@
 
 ## Instructions
 
-1. Create a directory called `frontend` in the root of your project. Inside the directory, install Astro.
+1. Create a directory called `frontend` in the root of your project. Inside the directory, install Astro by running `npm create astro@latest .`. When asked to initialize a git repository, select **No**.
 2. Install the necessary packages and files you will need for the `backend`. Some of the starter files have also been added in.
 3. Create your server, routes, controllers, and models inside your backend. You have full control over your backend so feel free to add or create your own functions/methods if necessary:
   
